@@ -1,2 +1,0 @@
-# clockChallenge
-Created with CodeSandbox
