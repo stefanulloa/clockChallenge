@@ -5,7 +5,7 @@ class Displayer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTime: new Date().toLocaleTimeString()
+      currentTime: new Date().getSeconds()
     };
   }
 
@@ -22,14 +22,14 @@ class Displayer extends Component {
 
   updateTime() {
     this.setState({
-      currentTime: new Date().toLocaleTimeString()
+      currentTime: new Date().getSeconds()
     });
   }
 
   render() {
     return (
       <div className="Displayer">
-        <h1>Time: {this.state.currentTime}</h1>
+        <h1>Current seconds: {this.state.currentTime}</h1>
       </div>
     );
   }
