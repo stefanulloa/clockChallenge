@@ -5,15 +5,19 @@ class Displayer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentTime: new Date().getSeconds()
+      currentSecond: new Date().getSeconds(),
+      messageMult: ""
     };
   }
 
   componentDidMount() {
-    this.intervalID = setInterval(
-      () => this.updateTime(),
-      MILISECONDS_TO_UPDATE
-    );
+    this.whichMultiple();
+    this.intervalID = setInterval(() => this.twoFuncs(), MILISECONDS_TO_UPDATE);
+  }
+
+  twoFuncs() {
+    this.updateTime();
+    this.whichMultiple();
   }
 
   componentWillUnmount() {
@@ -22,14 +26,38 @@ class Displayer extends Component {
 
   updateTime() {
     this.setState({
-      currentTime: new Date().getSeconds()
+      currentSecond: new Date().getSeconds()
     });
+  }
+
+  whichMultiple() {
+    var secondToTest = this.state.currentSecond;
+
+    if (secondToTest % 3 == 0 && secondToTest % 5 != 0) {
+      this.setState({
+        messageMult: "fizz"
+      });
+    } else if (secondToTest % 5 == 0 && secondToTest % 3 != 0) {
+      this.setState({
+        messageMult: "buzz"
+      });
+    } else if (secondToTest % 5 == 0 && secondToTest % 5 == 0) {
+      this.setState({
+        messageMult: "fizzbuzz"
+      });
+    } else {
+      this.setState({
+        messageMult: ""
+      });
+    }
   }
 
   render() {
     return (
       <div className="Displayer">
-        <h1>Current seconds: {this.state.currentTime}</h1>
+        <h1>
+          {this.state.messageMult} Current seconds: {this.state.currentSecond}
+        </h1>
       </div>
     );
   }
