@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+const MILISECONDS_TO_UPDATE = 1000;
 
 class Displayer extends Component {
   constructor(props) {
@@ -9,7 +10,14 @@ class Displayer extends Component {
   }
 
   componentDidMount() {
-    setInterval(() => this.updateTime(), 1000);
+    this.intervalID = setInterval(
+      () => this.updateTime(),
+      MILISECONDS_TO_UPDATE
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalID);
   }
 
   updateTime() {
