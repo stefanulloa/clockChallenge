@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import "../styles.css";
+
 const MILISECONDS_TO_UPDATE = 1000; //setInterval calls function every 1s
 
 //displayer component

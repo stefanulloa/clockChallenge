@@ -2,3 +2,11 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+.Displayer {
+  text-align: center;
+  background: rgb(236, 234, 234);
+  border-radius: 20%;
+  color: rgb(105, 153, 207);
+}
+
