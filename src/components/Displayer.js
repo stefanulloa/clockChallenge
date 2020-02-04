@@ -11,7 +11,6 @@ class Displayer extends Component {
   }
 
   componentDidMount() {
-    this.whichMultiple();
     this.intervalID = setInterval(() => this.twoFuncs(), MILISECONDS_TO_UPDATE);
   }
 
@@ -33,15 +32,15 @@ class Displayer extends Component {
   whichMultiple() {
     var secondToTest = this.state.currentSecond;
 
-    if (secondToTest % 3 == 0 && secondToTest % 5 != 0) {
+    if (secondToTest % 3 === 0 && secondToTest % 5 !== 0) {
       this.setState({
         messageMult: "fizz"
       });
-    } else if (secondToTest % 5 == 0 && secondToTest % 3 != 0) {
+    } else if (secondToTest % 5 === 0 && secondToTest % 3 !== 0) {
       this.setState({
         messageMult: "buzz"
       });
-    } else if (secondToTest % 5 == 0 && secondToTest % 5 == 0) {
+    } else if (secondToTest % 5 === 0 && secondToTest % 5 === 0) {
       this.setState({
         messageMult: "fizzbuzz"
       });
