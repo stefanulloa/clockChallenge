@@ -5,8 +5,27 @@
 
 .Displayer {
   text-align: center;
+  color: rgb(105, 153, 207);
   background: rgb(236, 234, 234);
   border-radius: 20%;
-  color: rgb(105, 153, 207);
+  padding-bottom: 1px;
 }
 
+.Clock {
+  height: 80px;
+  width: 80px;
+  top: 15px;
+  background: white;
+  border: solid 3px rgb(151, 216, 216);
+  border-radius: 50%;
+  position: relative;
+  display: inline-block;
+}
+
+.Pointer {
+  height: 40px;
+  width: 0px;
+  border: solid 2px black;
+  position: relative;
+  display: inline-block;
+}

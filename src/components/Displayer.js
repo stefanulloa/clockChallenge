@@ -68,6 +68,9 @@ class Displayer extends Component {
   render() {
     return (
       <div className="Displayer">
+        <div className="Clock">
+          <div className="Pointer" />
+        </div>
         <h1>Current seconds: {this.state.currentSecond}</h1>
         <h1>Word? {this.state.messageMult}</h1>
       </div>
