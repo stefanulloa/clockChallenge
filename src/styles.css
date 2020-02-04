@@ -22,11 +22,15 @@
   display: inline-block;
 }
 
+/*
+height as 37 given by 80[circle diameter/2]-3[circle border]
+transform-origin from bottom to make rotations with
+lowest point of pointer fixed
+*/
 .Pointer {
-  height: 40px;
+  height: 37px;
   width: 0px;
-  border: solid 2px black;
-  position: relative;
+  border: solid 1px rgb(0, 0, 0);
   display: inline-block;
   transform-origin: bottom;
 }
