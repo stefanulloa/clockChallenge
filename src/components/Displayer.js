@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "../styles.css";
 
 const MILISECONDS_TO_UPDATE = 1000; //setInterval calls function every 1s
+const CHANGE_DOMAIN_VALUE = 90 / 15; //when its 15 seconds in time, the seconds clock pointer has a 15 degree angle
 
 //displayer component
 class Displayer extends Component {
@@ -65,17 +66,24 @@ class Displayer extends Component {
   };
 
   //displays curent second in time and message if its multiple
+  //it also renders clock classes deined in css
   render() {
+    const curSec = this.state.currentSecond;
+    const msg = this.state.messageMult;
+
+    //modify style prop. of pointer class:
+    // pointer will rotate according to sec-to-degree transformation
+    const rotation = {
+      transform: `rotate(${curSec * CHANGE_DOMAIN_VALUE}deg)`
+    };
+
     return (
       <div className="Displayer">
         <div className="Clock">
-          <div
-            className="Pointer"
-            style={{ transform: `rotate(${this.state.currentSecond * 6}deg)` }}
-          />
+          <div className="Pointer" style={rotation} />
         </div>
-        <h1>Current seconds: {this.state.currentSecond}</h1>
-        <h1>Word? {this.state.messageMult}</h1>
+        <h1>Current seconds: {curSec}</h1>
+        <h1>Word? {msg}</h1>
       </div>
     );
   }
