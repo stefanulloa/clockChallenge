@@ -40,7 +40,7 @@ class Displayer extends Component {
       this.setState({
         messageMult: "buzz"
       });
-    } else if (secondToTest % 5 === 0 && secondToTest % 5 === 0) {
+    } else if (secondToTest % 3 === 0 && secondToTest % 5 === 0) {
       this.setState({
         messageMult: "fizzbuzz"
       });
