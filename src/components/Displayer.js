@@ -69,7 +69,10 @@ class Displayer extends Component {
     return (
       <div className="Displayer">
         <div className="Clock">
-          <div className="Pointer" />
+          <div
+            className="Pointer"
+            style={{ transform: `rotate(${this.state.currentSecond * 6}deg)` }}
+          />
         </div>
         <h1>Current seconds: {this.state.currentSecond}</h1>
         <h1>Word? {this.state.messageMult}</h1>
