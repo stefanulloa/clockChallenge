@@ -1,34 +1,42 @@
 import React, { Component } from "react";
-const MILISECONDS_TO_UPDATE = 1000;
+const MILISECONDS_TO_UPDATE = 1000; //setInterval calls function every 1s
 
+//displayer component
 class Displayer extends Component {
   constructor(props) {
     super(props);
+    //displayer comp. has time property and message property
     this.state = {
+      //extract current seconds in time from Date object
       currentSecond: new Date().getSeconds(),
       messageMult: ""
     };
   }
 
   componentDidMount() {
+    //setinterval to update comp.
     this.intervalID = setInterval(() => this.twoFuncs(), MILISECONDS_TO_UPDATE);
   }
 
+  //first second is updated, then it is evaluated for multipl.
   twoFuncs() {
     this.updateTime();
     this.whichMultiple();
   }
 
+  //clearing timer when comp. unmounts
   componentWillUnmount() {
     clearInterval(this.intervalID);
   }
 
+  //setting new current second to comp. state
   updateTime() {
     this.setState({
       currentSecond: new Date().getSeconds()
     });
   }
 
+  //func evaluates if current second is multiple of cases
   whichMultiple() {
     var secondToTest = this.state.currentSecond;
 
@@ -51,12 +59,12 @@ class Displayer extends Component {
     }
   }
 
+  //displays curent second in time and message if its multiple
   render() {
     return (
       <div className="Displayer">
-        <h1>
-          {this.state.messageMult} Current seconds: {this.state.currentSecond}
-        </h1>
+        <h1>Current seconds: {this.state.currentSecond}</h1>
+        <h1>Word? {this.state.messageMult}</h1>
       </div>
     );
   }
