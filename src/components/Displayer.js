@@ -15,13 +15,10 @@ class Displayer extends Component {
 
   componentDidMount() {
     //setinterval to update comp.
-    this.intervalID = setInterval(() => this.twoFuncs(), MILISECONDS_TO_UPDATE);
-  }
-
-  //first second is updated, then it is evaluated for multipl.
-  twoFuncs() {
-    this.updateTime();
-    this.whichMultiple();
+    this.intervalID = setInterval(
+      () => this.updateTime(),
+      MILISECONDS_TO_UPDATE
+    );
   }
 
   //clearing timer when comp. unmounts
@@ -30,10 +27,16 @@ class Displayer extends Component {
   }
 
   //setting new current second to comp. state
+  //then evaluating it for multipl.
   updateTime() {
-    this.setState({
-      currentSecond: new Date().getSeconds()
-    });
+    this.setState(
+      {
+        currentSecond: new Date().getSeconds()
+      },
+      () => {
+        this.whichMultiple();
+      }
+    );
   }
 
   //func evaluates if current second is multiple of cases
