@@ -28,7 +28,7 @@ class Displayer extends Component {
 
   //setting new current second to comp. state
   //then evaluating it for multipl.
-  updateTime() {
+  updateTime = () => {
     this.setState(
       {
         currentSecond: new Date().getSeconds()
@@ -37,10 +37,10 @@ class Displayer extends Component {
         this.whichMultiple();
       }
     );
-  }
+  };
 
   //func evaluates if current second is multiple of cases
-  whichMultiple() {
+  whichMultiple = () => {
     var secondToTest = this.state.currentSecond;
 
     if (secondToTest % 3 === 0 && secondToTest % 5 !== 0) {
@@ -60,7 +60,7 @@ class Displayer extends Component {
         messageMult: ""
       });
     }
-  }
+  };
 
   //displays curent second in time and message if its multiple
   render() {
